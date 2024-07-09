@@ -14,10 +14,11 @@ class RegisterView(generics.CreateAPIView):
 
     def create(self, request, *args, **kwargs):
         response = super().create(request, *args, **kwargs)
-        user = self.get_object()
-        org = Organisation.objects.create(name=f"{user.email}'s Organisation", status=0)
-        owner_role = Role.objects.create(name="Owner", org_id=org)
-        Member.objects.create(org_id=org, user_id=user, role_id=owner_role, status=0)
+        user = response.data
+        user_instance = User.objects.get(id=user['id'])
+        org = Organisation.objects.create(name=f"Organisation of {user['email']}", status=0)
+        owner_role = Role.objects.create(name="owner", description="sample description", org_id=org)
+        Member.objects.create(org_id=org, user_id=user_instance, role_id=owner_role, status=0)
         return response
 
 class CustomTokenObtainPairView(TokenObtainPairView):
