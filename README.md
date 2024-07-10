@@ -8,7 +8,7 @@ This is a Django project that includes basic user management, organization manag
 - Python 3
 - PostgreSQL
 - pip 
-
+```
 ## Setup Instructions
 
 ### 1. Clone the Repository
