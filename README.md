@@ -1,6 +1,6 @@
-```markdown
+```test_project
 # Django Project
-https://github.com/deebadithya
+https://github.com/deebadithya/test_project.git
 This is a Django project that includes basic user management, organization management, and member roles.
 
 ## Prerequisites
